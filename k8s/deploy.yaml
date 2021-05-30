@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-external-url-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-external-url-exporter
+  template:
+    metadata:
+      labels:
+        app: sample-external-url-exporter
+    spec:
+      containers:
+      - image: santosh0705/sample-external-url-exporter:latest
+        imagePullPolicy: IfNotPresent
+        name: exporter
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP

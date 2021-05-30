@@ -43,7 +43,14 @@ docker run -d -p 8080:8080 santosh0705/sample-external-url-exporter
 
 # Using Kubernetes
 
-Coming soon...
+# Deploy
+
+The [k8s](k8s) directory holds the required manifests to deploy the exporter on a Kubernetes cluster. We can create a separate namespace to keep the monitoring related deployment separate from others. Here we are creating a namespace `monitoring`.
+```
+kubectl create namespace monitoring
+kubectl apply -f k8s -n monitoring
+```
+The above commands will create a namespace `monitoring`, deploy the exporter application and expose it as service.
 
 # Monitoring using Prometheus and Grafana
 
