@@ -54,6 +54,15 @@ The above commands will create a namespace `monitoring`, deploy the exporter app
 
 # Monitoring using Prometheus and Grafana
 
+Assumed that the Prometheus and Grafana services are installed and configured in the same Kubernetes cluster in the same namespace as this exporter. Prometheus will automatically detect the exporter via a special annotation configuration and it will get added in the `kubernetes-service-endpoints` targets. Refer to the image below, you can find it with the label `kubernetes_name="sample-external-url-exporter"`.
+![target](images/target.png)
+
+Prometheus will start scraping metrics from the exporter as soon as it get added. Query for `sample_external_url_up` and `sample_external_url_response_ms` on Prometheus UI and you will see it appearing.
+![sample_external_url_up](images/metrics-up.png)
+![sample_external_url_response_ms](images/metrics-response-time.png)
+
+## Grafana dashboard
+
 Coming soon...
 
 ## Collectors
