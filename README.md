@@ -20,7 +20,26 @@ The binary doesn't accept any parameter. The service bind to the port `8080` and
 
 # Using Docker
 
-Coming soon...
+## Build image
+
+With working docker environment you can built the docker image with `docker build .`. Docker image building is multi stage image builder, it uses intermediate container for compiling binary. You don't need a working golang environment to build docker image.
+```
+docker build -t sample-external-url-exporter .
+```
+
+## Tag and push image
+
+Tag the image with your private or public registry repository and push it to the remote docker registry so it can be used in other system or k8s environment. You may have to login to the remote registry first to push the image.
+```
+docker image tag sample-external-url-exporter santosh0705/sample-external-url-exporter
+docker image push santosh0705/sample-external-url-exporter
+```
+
+## Run
+
+```
+docker run -d -p 8080:8080 santosh0705/sample-external-url-exporter
+```
 
 # Using Kubernetes
 
