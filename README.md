@@ -63,7 +63,9 @@ Prometheus will start scraping metrics from the exporter as soon as it get added
 
 ## Grafana dashboard
 
-Coming soon...
+Import the minimalistic dashboard ([dashboard.json](grafana/dashboard.json)) created for the exporter from [grafana](grafana) directory.
+Start monitoring the exporter metrics on Grafana.
+![dashboard](images/dashboard.png)
 
 ## Collectors
 
