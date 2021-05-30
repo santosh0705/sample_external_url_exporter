@@ -78,6 +78,10 @@ Sample external URL metrics:
 # TYPE sample_external_url_up gauge
 ```
 
+## Known caveat
+
+The first http request made for the external URL comparatively have higher response time. This may be due to the DNS query made for the first time and later taken from the cache.
+
 ## Author
 
 The exporter is created by [santosh0705](https://github.com/santosh0705).
