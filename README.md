@@ -2,6 +2,17 @@
 
 Exports status of external web service URLs and access response time via HTTP for Prometheus consumption.
 
+This exporter queries 2 external urls `https://httpstat.us/503` & `https://httpstat.us/200` and check for it's up status based on the http status code 200 and the response time in milliseconds. It run a http service that produces metrics and output in Prometheus format when requesting the service on `/metrics` endpoint.
+
+### Response format:
+
+```
+sample_external_url_up{url="https://httpstat.us/503"} 0
+sample_external_url_response_ms{url="https://httpstat.us/503"} [value]
+sample_external_url_up{url="https://httpstat.us/200"} 1
+sample_external_url_response_ms{url="https://httpstat.us/200"} [value]
+```
+
 # Building and running
 
 ## Build binary
